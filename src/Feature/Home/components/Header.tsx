@@ -6,7 +6,11 @@ import { themeConfiguration } from '../../../themeConfiguration';
 
 const useStyles = makeStyles(() => ({
     logoContainer: {
-        margin: themeConfiguration.spacing(1),
+        // margin: themeConfiguration.spacing(0.25),
+        // backgroundColor: '#095EDD',
+        backgroundColor: '#000B27',
+        paddingTop: '12px !important'
+
     },
     textContainer: {
         padding: '0px 0px 0px 12px !important'
