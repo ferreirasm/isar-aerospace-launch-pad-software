@@ -1,38 +1,79 @@
 import { Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import React from 'react';
-// import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
+import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
 import { VelocityModel, velocityModelInitial } from '../../../Models/VelocityModel';
 import LaunchDataService from '../../../Service/LaunchDataService';
+import Chart from '../../../shared/Chart';
+import { GaugeCharts } from '../../../shared/GaugeCharts';
+import { Thermometer } from '../../../shared/icons/Thermometer';
+import { MessageView } from '../../../shared/MessageView';
+import { Gauge } from '../../../shared/Speedometer';
+
+const useStyles = makeStyles(() => ({
+    // container:{
+    //     backgroundColor:'#2a2a35',
+    //     // backgroundColor:'#fbd1c1',
+    // }
+}));
 
 export function VelocityVisualization() {
 
+    const classes = useStyles();
+
     const [velocity, setVelocity] = React.useState<VelocityModel>(velocityModelInitial);
     const [error, setError] = React.useState<string>('');
-    // const [launchData, setLaunchData] = React.useState<LaunchDataModel>(launchDataModelInitial);
+    const [launchData, setLaunchData] = React.useState<LaunchDataModel>(launchDataModelInitial);
 
     React.useEffect(() => {
-        fetchVelocity();
+        fetchData();
     }, []);
 
-    const fetchVelocity = () => {
+    const fetchData = () => {
         LaunchDataService.getLaunchDataService()
             .then((res) => {
-                if (res.data) {
-                    setVelocity(res.data.velocity);
-                    // setLaunchData(res.data);
-                }
-                console.log(velocity);
-                // console.log(launchData);
+                setVelocity(res.data.velocity);
+                setLaunchData(res.data);
             })
             .catch((error) => setError(error));
     };
 
+    const goingUp = String(launchData.goingUp);
+
     return (
         <>
-            <Grid item xs={12} sm={12} md={12}>
-                <Typography variant='h5' color='textPrimary'>
-                    SPECTRUM STATUS MONITOR
-                </Typography>
+            <Grid 
+                container
+                direction='row'
+                spacing={1}
+            >
+                <Grid item xs={4}>
+                    <GaugeCharts 
+                        name='Temperature' 
+                        value={launchData.temperature} 
+                        unitSI='°C' 
+                        icon = {<Thermometer />}
+                    />
+                </Grid>
+                
+                <Grid item xs={4}>
+                    <GaugeCharts name='Altitude' value={launchData.altitude} unitSI='m'/>
+                </Grid>
+                <Grid item xs={4} >
+                    <MessageView name='Going up?' message={goingUp}/>
+                </Grid>
+                <Grid item xs={4} >
+                    <Gauge name='Velocity X' valueNumber={velocity.x} unitSI='m/s' />
+                </Grid>
+                <Grid item xs={4}>
+                    <Gauge name='Velocity Y' valueNumber={velocity.y} unitSI='m/s' />
+                </Grid>
+                <Grid item xs={4}>
+                    <Gauge name='Velocity Z' valueNumber={velocity.z} unitSI='m/s' />
+                </Grid>
+                <Grid item xs={12} >
+                    <MessageView name='Message' message={launchData.statusMessage}/>
+                </Grid>
             </Grid>
         </>
     );

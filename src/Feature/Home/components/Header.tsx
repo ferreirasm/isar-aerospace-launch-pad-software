@@ -1,19 +1,27 @@
 import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 
-import Isar from '../../../assets/logotest.svg';
 import { themeConfiguration } from '../../../themeConfiguration';
 
 const useStyles = makeStyles(() => ({
     logoContainer: {
-        // margin: themeConfiguration.spacing(0.25),
-        // backgroundColor: '#095EDD',
-        backgroundColor: '#000B27',
-        paddingTop: '12px !important'
+        backgroundColor: '#2a2a35',
+        marginBottom: themeConfiguration.spacing(0.25),
+        border: '1px solid #2a2a35',
+        color: 'white',
+        maxHeight: themeConfiguration.spacing(10),
+        alignItems: 'flex',
+        height: '62px',
 
     },
+
     textContainer: {
-        padding: '0px 0px 0px 12px !important'
+        textAlign: 'center',
+    },
+
+    imageContainer: {
+        textAlign: 'center',
+        alignItems: 'center',
     }
 }));
 
@@ -22,21 +30,23 @@ export function Header() {
     const classes = useStyles();
 
     return (
-        <Grid 
+        <Grid
             container
-            justifyContent='center'
-            direction='column'
-            alignItems='center'
-            spacing={3}
-            className={classes.logoContainer}>
-            <Grid item xs={12} sm={12} md={12}>
-                <img src={Isar} alt='logo'></img>
-            </Grid>
-            {/* <Grid item xs={12} sm={12} md={12} className={classes.textContainer}>
-                <Typography variant='h5' color='textPrimary'>
-                    SPECTRUM STATUS MONITOR
+            direction='row'
+            justify='space-between'
+            alignItems='flex-start'
+            spacing={2}>
+            <Grid 
+                item 
+                xs={12}
+                md={12}
+                className={classes.logoContainer}>
+                <Typography 
+                    variant='h4' 
+                    className={classes.textContainer}>
+                    Spectrum Launch Health Monitor
                 </Typography>
-            </Grid> */}
+            </Grid>
         </Grid>
     );
 }
