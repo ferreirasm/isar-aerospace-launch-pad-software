@@ -4,11 +4,10 @@ import React from 'react';
 import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
 import { VelocityModel, velocityModelInitial } from '../../../Models/VelocityModel';
 import LaunchDataService from '../../../Service/LaunchDataService';
-import Chart from '../../../shared/Chart';
-import { GaugeCharts } from '../../../shared/GaugeCharts';
+import { GaugeCharts } from '../../../shared/components/GaugeCharts';
 import { Thermometer } from '../../../shared/icons/Thermometer';
-import { MessageView } from '../../../shared/MessageView';
-import { Gauge } from '../../../shared/Speedometer';
+import { MessageView } from '../../../shared/components/MessageView';
+import { Speedometer } from '../../../shared/components/Speedometer';
 
 const useStyles = makeStyles(() => ({
     // container:{
@@ -17,7 +16,7 @@ const useStyles = makeStyles(() => ({
     // }
 }));
 
-export function VelocityVisualization() {
+export function DataVisualization() {
 
     const classes = useStyles();
 
@@ -63,13 +62,13 @@ export function VelocityVisualization() {
                     <MessageView name='Going up?' message={goingUp}/>
                 </Grid>
                 <Grid item xs={4} >
-                    <Gauge name='Velocity X' valueNumber={velocity.x} unitSI='m/s' />
+                    <Speedometer name='Velocity X' valueNumber={velocity.x} unitSI='m/s' />
                 </Grid>
                 <Grid item xs={4}>
-                    <Gauge name='Velocity Y' valueNumber={velocity.y} unitSI='m/s' />
+                    <Speedometer name='Velocity Y' valueNumber={velocity.y} unitSI='m/s' />
                 </Grid>
                 <Grid item xs={4}>
-                    <Gauge name='Velocity Z' valueNumber={velocity.z} unitSI='m/s' />
+                    <Speedometer name='Velocity Z' valueNumber={velocity.z} unitSI='m/s' />
                 </Grid>
                 <Grid item xs={12} >
                     <MessageView name='Message' message={launchData.statusMessage}/>

@@ -4,17 +4,9 @@ import React from 'react';
 import Isar from '../../../assets/logoIsar.svg';
 import Spectrum from '../../../assets/Spectrum_liftoff.jpg';
 
-
-// const useStyles = makeStyles((themeConfiguration) => createStyles({
-//     img: {
-//         textAlgin: 'center',
-//         margin: themeConfiguration.spacing(3),
-//     }
-// }));
 const useStyles = makeStyles((themeConfiguration) => createStyles({
     img: {
         textAlign:'center',
-        // margin: '24px'
     },
 
     photo:{
@@ -27,14 +19,6 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
         borderRadius: '16px',
         maxWidth: '230px',
         backgroundColor: '#115fb0',
-    },
-
-    item:{
-
-    },
-
-    text:{
-        color: 'white',
     },
 
     button: {
@@ -63,13 +47,6 @@ export function DrawerHeader() {
                 alt='rocket'
                 className={classes.photo}
             />
-            {/* <Paper className={classes.paperContainer}>
-                <Grid item>
-                    <Typography className={classes.text}>
-                        Update Data
-                    </Typography>
-                </Grid>
-            </Paper> */}
             <Button variant='contained' color='primary' className={classes.button}>
                 Update Data
             </Button>

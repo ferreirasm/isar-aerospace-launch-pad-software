@@ -1,11 +1,13 @@
-import { createStyles, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { createStyles, Grid, Icon, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import { themeConfiguration } from '../themeConfiguration';
-import './Gauge.css';
+import Plot from 'react-plotly.js';
+import { themeConfiguration } from '../../themeConfiguration';
 
-interface IMessageViewProps {
+interface IGaugeChartsProps {
     name?: string,
-    message?: string
+    value: number,
+    unitSI?: string,
+    icon?: JSX.Element,
 }
 
 const useStyles = makeStyles((themeConfiguration) => createStyles({
@@ -14,32 +16,33 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
         marginBottom: themeConfiguration.spacing(0.25),
         border: '1px solid #3d3947',
         color: 'white',
-        // maxHeight: themeConfiguration.spacing(10),
-        // maxWidth: '100vh',
+        maxWidth: '100vh',
+    },
+    
+    title:{
+        fontSize: '30px',
+        textAlign: 'center',
+        color: 'white',
+    },
+
+    message:{
+        fontSize: '40px',
+        textAlign: 'center',
+        paddingBottom: '8px',
+    },
+
+    typography:{
+        margin: '24px',
+        color: 'white',
     },
 
     paperContainer: {
         borderRadius: '16px',
         background: '#3d3947',
     },
-    
-    title:{
-        fontSize: '30px',
-        textAlign: 'center',
-        color:'white'
-    },
-    message:{
-        fontSize: '40px',
-        textAlign: 'center',
-        paddingBottom: '8px',
-    },
-    typography:{
-        margin: '24px',
-        color: 'white',
-    }
 }));
 
-export function MessageView({name, message}: IMessageViewProps) {
+export function GaugeCharts({ name, value, unitSI, icon } : IGaugeChartsProps) {
     const classes = useStyles();
 
     return(
@@ -48,28 +51,18 @@ export function MessageView({name, message}: IMessageViewProps) {
                 elevation={3}
                 className={classes.paperContainer}
             >
-                {/* <div className={classes.root}>
-                    <div className={classes.title}>
-                        {name}: 
-                    </div>
-                    <div className={classes.message}>
-                        <Typography variant='h2' className={classes.typography}>
-                            {message?.toUpperCase()}!
-                        </Typography>
-                    </div>
-                </div> */}
                 <Grid
                     item
                     className={classes.title}
                 >
-                    {name}:
+                    {name} {icon}:
                 </Grid>
                 <Grid
                     item
                     className={classes.message}
                 >
                     <Typography variant='h2' className={classes.typography}>
-                        {message?.toUpperCase()}!
+                        {value?.toFixed(0)} {unitSI}
                     </Typography>
                 </Grid>
             </Paper>

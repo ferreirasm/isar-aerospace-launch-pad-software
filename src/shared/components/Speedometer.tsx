@@ -2,7 +2,7 @@ import { Grid, makeStyles, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
 
-interface IGaugeProps {
+interface ISpeedometerProps {
     name?: string,
     valueNumber: number,
     unitSI?: string
@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export function Gauge({ name, valueNumber, unitSI}: IGaugeProps){
+export function Speedometer({ name, valueNumber, unitSI}: ISpeedometerProps){
     const classes = useStyles();
 
     return(

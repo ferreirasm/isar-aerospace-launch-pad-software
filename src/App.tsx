@@ -2,22 +2,13 @@
 import React from 'react';
 import './App.css';
 import { Header } from './Feature/Home/components/Header';
-import { BackgroundVideo } from './Feature/Home/components/BackgroundVideo';
-import { VelocityVisualization } from './Feature/Content/components/VelocityVisualization';
+import { DataVisualization } from './Feature/Content/components/DataVisualization';
 import { Grid, ThemeProvider } from '@material-ui/core';
-import { Comentario } from './components/Comentario';
 import { Sidebar } from './components/Sidebar';
 import { makeStyles } from '@material-ui/styles';
 import { themeConfiguration } from './themeConfiguration';
 
 const useStyles = makeStyles(() => ({
-    backgroundVideo: {
-        height: '100%',
-        width: '100%',
-        top: 0,
-        padding: 'none',
-        position: 'absolute',
-    },
     home: {
         marginLeft: themeConfiguration.spacing(31),
         height: '100vh',
@@ -38,7 +29,7 @@ function App() {
                 <Sidebar />
                 <div className={classes.home}>
                     <Header />
-                    <VelocityVisualization />
+                    <DataVisualization />
                 </div>
             </div>
         </ThemeProvider>
