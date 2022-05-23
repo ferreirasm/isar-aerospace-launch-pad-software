@@ -1,6 +1,6 @@
-import { createTheme } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core';
 
-export const themeConfiguration = createTheme({
+export const themeConfiguration = createMuiTheme({
     palette: {
         primary: {
             light: '#E0FBC8',
@@ -52,97 +52,190 @@ export const themeConfiguration = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Open Sans',
+        fontFamily: 'Didact Gothic',
         h1: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '6rem',
             lineHeight: '7.25rem',
             letterSpacing: '0rem'
         },
         h2: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '3.75rem',
             lineHeight: '4.5rem',
             letterSpacing: '0rem'
         },
         h3: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '3rem',
             lineHeight: '3.625rem',
             letterSpacing: '0rem'
         },
         h4: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '2.125rem',
             lineHeight: '2.5rem',
             letterSpacing: '0rem'
         },
         h5: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '1.5rem',
             lineHeight: '1.75rem',
             letterSpacing: '0rem'
         },
         h6: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '1.25rem',
             lineHeight: '1.5rem',
             letterSpacing: '0rem'
         },
         subtitle1: {
-            fontFamily: 'Open Sans',
-            fontWeight: 600,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '1rem',
             lineHeight: '1.25rem',
             letterSpacing: '0rem'
         },
         subtitle2: {
-            fontFamily: 'Open Sans',
+            fontFamily: 'Didact Gothic',
             fontWeight: 600,
             fontSize: '0.875rem',
             lineHeight: '1rem',
             letterSpacing: '0rem'
         },
         body1: {
-            fontFamily: 'Open Sans',
+            fontFamily: 'Didact Gothic',
             fontWeight: 400,
             fontSize: '1rem',
             lineHeight: '1.25rem',
             letterSpacing: '0rem'
         },
         body2: {
-            fontFamily: 'Open Sans',
+            fontFamily: 'Didact Gothic',
             fontWeight: 400,
             fontSize: '0.875rem',
             lineHeight: '1rem',
             letterSpacing: '0rem'
         },
         button: {
-            fontFamily: 'Open Sans',
-            fontWeight: 600,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '0.875rem',
             lineHeight: '1.25rem',
             letterSpacing: '0.018rem'
         },
         caption: {
-            fontFamily: 'Open Sans',
-            fontWeight: 500,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '0.75rem',
             lineHeight: '0.875rem',
             letterSpacing: '0.01rem'
         },
         overline: {
-            fontFamily: 'Open Sans',
-            fontWeight: 700,
+            fontFamily: 'Didact Gothic',
+            fontWeight: 400,
             fontSize: '0.625rem',
             lineHeight: '0.75rem',
             letterSpacing: '0.1rem'
         }
+
+        // fontFamily: 'Montserrat',
+        // h1 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '6rem',
+        //     lineHeight: '7.25rem',
+        //     letterSpacing: '0rem'
+        // },
+        // h2 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '3.75rem',
+        //     lineHeight: '4.5rem',
+        //     letterSpacing: '0rem'
+        // },
+        // h3 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '3rem',
+        //     lineHeight: '3.625rem',
+        //     letterSpacing: '0rem'
+        // },
+        // h4 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '2.125rem',
+        //     lineHeight: '2.5rem',
+        //     letterSpacing: '0rem'
+        // },
+        // h5 : { 
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '1.5rem',
+        //     lineHeight: '1.75rem',
+        //     letterSpacing: '0rem'
+        // },
+        // h6 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '1.25rem',
+        //     lineHeight: '1.5rem',
+        //     letterSpacing: '0rem'
+        // },
+        // subtitle1 : { 
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 600, 
+        //     fontSize: '1rem',
+        //     lineHeight: '1.25rem',
+        //     letterSpacing: '0rem'
+        // },
+        // subtitle2 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 600, 
+        //     fontSize: '0.875rem',
+        //     lineHeight: '1rem',
+        //     letterSpacing: '0rem'
+        // },
+        // body1 : { 
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 400, 
+        //     fontSize: '1rem',
+        //     lineHeight: '1.25rem',
+        //     letterSpacing: '0rem'
+        // },
+        // body2 : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 400, 
+        //     fontSize: '0.875rem',
+        //     lineHeight: '1rem',
+        //     letterSpacing: '0rem'
+        // },
+        // button : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 600, 
+        //     fontSize: '0.875rem',
+        //     lineHeight: '1.25rem',
+        //     letterSpacing: '0.018rem'
+        // },
+        // caption : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 500, 
+        //     fontSize: '0.75rem',
+        //     lineHeight: '0.875rem',
+        //     letterSpacing: '0.01rem'
+        // },
+        // overline : {
+        //     fontFamily: 'Montserrat',
+        //     fontWeight: 700, 
+        //     fontSize: '0.625rem',
+        //     lineHeight: '0.75rem',
+        //     letterSpacing: '0.1rem'
+        // }
     }
 });

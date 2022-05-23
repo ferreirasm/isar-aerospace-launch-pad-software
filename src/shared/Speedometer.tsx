@@ -28,7 +28,7 @@ export function Gauge({ name, valueNumber, unitSI}: IGaugeProps){
                         {
                             domain: { x: [-1,1], y: [-1,1]},
                             value: valueNumber,
-                            title: { text: name+' - '+unitSI, font:{ size: 30} },
+                            title: { text: name+' - '+unitSI, font:{ size: 30, family: 'Didact  Gothic'} },
                             type: 'indicator',
                             mode: 'gauge+number',
                             gauge: {
@@ -56,7 +56,9 @@ export function Gauge({ name, valueNumber, unitSI}: IGaugeProps){
                         width: 428, 
                         height: 290,
                         paper_bgcolor: '#3d3947',
-                        font: { color: 'white'}
+                        font: { 
+                            family: 'Didact Gothic',
+                            color: 'white'}
                     }}
                 />
             </Grid>
