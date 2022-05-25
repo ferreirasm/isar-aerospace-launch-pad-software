@@ -7,6 +7,7 @@ import { Grid, ThemeProvider } from '@material-ui/core';
 import { Sidebar } from './components/Sidebar';
 import { makeStyles } from '@material-ui/styles';
 import { themeConfiguration } from './themeConfiguration';
+import { DataContext } from './Feature/Content/DataContext';
 
 const useStyles = makeStyles(() => ({
     home: {
@@ -22,16 +23,19 @@ const useStyles = makeStyles(() => ({
 function App() {
 
     const classes = useStyles();
-
+    const [updateData, setUpdateData] = React.useState<boolean>(false);
+    
     return (
         <ThemeProvider theme={themeConfiguration}>
-            <div className={classes.container}>
-                <Sidebar />
-                <div className={classes.home}>
-                    <Header />
-                    <DataVisualization />
+            <DataContext.Provider value={{ updateData, setUpdateData}}>
+                <div className={classes.container}>
+                    <Sidebar />
+                    <div className={classes.home}>
+                        <Header />
+                        <DataVisualization />
+                    </div>
                 </div>
-            </div>
+            </DataContext.Provider>
         </ThemeProvider>
     );
 }

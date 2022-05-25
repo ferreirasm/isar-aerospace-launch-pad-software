@@ -8,6 +8,7 @@ import { GaugeCharts } from '../../../shared/components/GaugeCharts';
 import { Thermometer } from '../../../shared/icons/Thermometer';
 import { MessageView } from '../../../shared/components/MessageView';
 import { Speedometer } from '../../../shared/components/Speedometer';
+import { DataContext } from '../DataContext';
 
 const useStyles = makeStyles(() => ({
     // container:{
@@ -19,6 +20,7 @@ const useStyles = makeStyles(() => ({
 export function DataVisualization() {
 
     const classes = useStyles();
+    const dataContext = React.useContext(DataContext);
 
     const [velocity, setVelocity] = React.useState<VelocityModel>(velocityModelInitial);
     const [error, setError] = React.useState<string>('');
@@ -26,7 +28,9 @@ export function DataVisualization() {
 
     React.useEffect(() => {
         fetchData();
-    }, []);
+        dataContext.setUpdateData(false);
+
+    }, [dataContext.updateData]);
 
     const fetchData = () => {
         LaunchDataService.getLaunchDataService()
