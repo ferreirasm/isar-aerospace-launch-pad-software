@@ -1,11 +1,11 @@
 export interface VelocityModel {
-    x: number,
-    y: number,
-    z: number,
+    X: number,
+    Y: number,
+    Z: number,
 }
 
 export const velocityModelInitial = {
-    x: 0,
-    y: 0,
-    z: 0,
+    X: 0,
+    Y: 0,
+    Z: 0,
 };
