@@ -8,6 +8,7 @@ import { Sidebar } from './components/Sidebar';
 import { makeStyles } from '@material-ui/styles';
 import { themeConfiguration } from './themeConfiguration';
 import { DataContext } from './Feature/Content/DataContext';
+import { BasicAlertDialog } from './shared/components/BasicAlertDialog';
 
 const useStyles = makeStyles(() => ({
     home: {

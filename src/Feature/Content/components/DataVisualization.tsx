@@ -10,6 +10,7 @@ import { MessageView } from '../../../shared/components/MessageView';
 import { Speedometer } from '../../../shared/components/Speedometer';
 import { DataContext } from '../DataContext';
 import io from 'socket.io-client';
+import { BasicAlertDialog } from '../../../shared/components/BasicAlertDialog';
 
 const useStyles = makeStyles(() => ({
     // container:{
@@ -26,6 +27,10 @@ export function DataVisualization() {
     const [velocity, setVelocity] = React.useState<VelocityModel>(velocityModelInitial);
     const [error, setError] = React.useState<string>('');
     const [launchData, setLaunchData] = React.useState<LaunchDataModel>(launchDataModelInitial);
+    const [goingUpList, setGoingUpList] = React.useState<string[]>(['']);
+    const [openDialog, setOpenDialog] = React.useState<boolean>(false);
+    
+    const currentHistory = [false];
     
     React.useEffect(() => {
 
@@ -35,22 +40,16 @@ export function DataVisualization() {
 
     }, [dataContext.updateData]);
 
-    const url = 'wss://isaraerospace-webdeveloper-assignment.azurewebsites.net/api/SpectrumWS?token=0DB9D71DE67';
-    const ws = new WebSocket(url);
-    
     const openConnection = () => {
+        const url = 'wss://isaraerospace-webdeveloper-assignment.azurewebsites.net/api/SpectrumWS?token=0DB9D71DE67';
+        const ws = new WebSocket(url);
+        
         ws.onopen = () => {console.log('OPENED: '+url);};
         ws.onmessage = (event) => {updateData(event);};
         ws.onerror = () => {console.log('Error');}; 
         ws.close = () => {const ws = null;};
+        ws.onclose = () => {console.log('CLOSED: '+url);};
     };
-
-    // const updateVelocity = () => {
-    //     const velocity2 = launchData.Velocity[0].X;
-    //     const test = velocity2;
-    //     console.log(velocity);
-    //     console.log(test);
-    // };
 
     // const fetchData = () => {
     //     LaunchDataService.getLaunchDataService()
@@ -60,13 +59,44 @@ export function DataVisualization() {
     //         })
     //         .catch((error) => setError(error));
     // };
-
+    
+    
     const updateData = (event: any) => {
         setLaunchData(JSON.parse(event.data));
         setVelocity(JSON.parse(event.data).Velocity);
+       
+        // goingUp = String(launchData.GoingUp);
+        
+        handleHistoryGoingUp(JSON.parse(event.data).GoingUp); 
     };
 
-    const goingUp = String(launchData.GoingUp);
+
+    const handleHistoryGoingUp = (goingUp: any) => {
+
+        console.log(currentHistory);
+        currentHistory.push(goingUp);
+
+        if (currentHistory.length > 3) 
+        {
+            currentHistory.shift();
+        }
+
+        if (currentHistory.length > 2 && currentHistory.at(1) != currentHistory.at(2))
+        {
+            setOpenDialog(true);
+        }
+    };
+
+    const handleChangeTrajectory = (goingUp: any) => {
+        
+        if (goingUp == true)
+            LaunchDataService.postLaunchDataService(goingUp);
+            // console.log('false! Caindo');
+        else
+            LaunchDataService.postLaunchDataService(goingUp);
+
+        setOpenDialog(false);
+    };
 
     return (
         <>
@@ -88,7 +118,7 @@ export function DataVisualization() {
                     <GaugeCharts name='Altitude' value={launchData.Altitude} unitSI='m'/>
                 </Grid>
                 <Grid item xs={4} >
-                    <MessageView name='Going up?' message={goingUp}/>
+                    <MessageView name='Going up?' message={String(launchData.GoingUp)}/>
                 </Grid>
                 <Grid item xs={4} >
                     <Speedometer name='Velocity X' valueNumber={velocity.X} unitSI='m/s' />
@@ -102,6 +132,15 @@ export function DataVisualization() {
                 <Grid item xs={12} >
                     <MessageView name='Message' message={launchData.StatusMessage}/>
                 </Grid>
+                <BasicAlertDialog 
+                    open={openDialog} 
+                    title={'Spectrum change your trajectory'} 
+                    description={`The state of going up now is ${String(launchData.GoingUp)}! Do you want change?`}
+                    handlePrimaryButton={() => {handleChangeTrajectory(launchData.GoingUp);}}
+                    handleSecondaryButton={() => {setOpenDialog(false);}}
+                    textPrimaryButton={'Yes'}
+                    textSecondaryButton={'No'}
+                />
             </Grid>
         </>
     );
