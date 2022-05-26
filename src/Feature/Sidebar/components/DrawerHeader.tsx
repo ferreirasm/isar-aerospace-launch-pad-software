@@ -16,11 +16,11 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
 
     },
 
-    paperContainer:{
-        borderRadius: '16px',
-        maxWidth: '230px',
-        backgroundColor: '#115fb0',
-    },
+    // paperContainer:{
+    //     borderRadius: '16px',
+    //     maxWidth: '230px',
+    //     backgroundColor: '#115fb0',
+    // },
 
     button: {
         backgroundColor: '#115fb0',

@@ -40,6 +40,11 @@ export function DataVisualization() {
 
     }, [dataContext.updateData]);
 
+    // React.useEffect(() => {
+    //     openConnection();
+
+    // }, []);
+
     const openConnection = () => {
         const url = 'wss://isaraerospace-webdeveloper-assignment.azurewebsites.net/api/SpectrumWS?token=0DB9D71DE67';
         const ws = new WebSocket(url);
@@ -48,7 +53,8 @@ export function DataVisualization() {
         ws.onmessage = (event) => {updateData(event);};
         ws.onerror = () => {console.log('Error');}; 
         ws.close = () => {const ws = null;};
-        ws.onclose = () => {console.log('CLOSED: '+url);};
+        ws.onclose = () => { setTimeout( () => { dataContext.setUpdateData(true); }, 1000); };
+        // ws.onclose = () => { openConnection(); };
     };
 
     // const fetchData = () => {
@@ -73,7 +79,7 @@ export function DataVisualization() {
 
     const handleHistoryGoingUp = (goingUp: any) => {
 
-        console.log(currentHistory);
+        // console.log(currentHistory);
         currentHistory.push(goingUp);
 
         if (currentHistory.length > 3) 
@@ -87,15 +93,18 @@ export function DataVisualization() {
         }
     };
 
-    const handleChangeTrajectory = (goingUp: any) => {
+    const handleChangeTrajectory = (goingUp: boolean) => {
         
-        if (goingUp == true)
-            LaunchDataService.postLaunchDataService(goingUp);
-            // console.log('false! Caindo');
-        else
-            LaunchDataService.postLaunchDataService(goingUp);
+        const newGoingup = !goingUp;
+        // if (goingUp == true)
+        //     LaunchDataService.postLaunchDataService((false));
 
+        // else 
+        LaunchDataService.postLaunchDataService(newGoingup);
+        
         setOpenDialog(false);
+        console.log('Valor é: '+ goingUp);
+        console.log('Novo valor é: '+ newGoingup);
     };
 
     return (
@@ -121,13 +130,13 @@ export function DataVisualization() {
                     <MessageView name='Going up?' message={String(launchData.GoingUp)}/>
                 </Grid>
                 <Grid item xs={4} >
-                    <Speedometer name='Velocity X' valueNumber={velocity.X} unitSI='m/s' />
+                    <Speedometer name='Velocity X' valueNumber={velocity.X} unitSI='[m/s]' />
                 </Grid>
                 <Grid item xs={4}>
-                    <Speedometer name='Velocity Y' valueNumber={velocity.Y} unitSI='m/s' />
+                    <Speedometer name='Velocity Y' valueNumber={velocity.Y} unitSI='[m/s]' />
                 </Grid>
                 <Grid item xs={4}>
-                    <Speedometer name='Velocity Z' valueNumber={velocity.Z} unitSI='m/s' />
+                    <Speedometer name='Velocity Z' valueNumber={velocity.Z} unitSI='[m/s]' />
                 </Grid>
                 <Grid item xs={12} >
                     <MessageView name='Message' message={launchData.StatusMessage}/>

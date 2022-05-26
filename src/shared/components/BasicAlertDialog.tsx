@@ -1,6 +1,7 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, GridJustification, Typography } from '@material-ui/core';
+import { Button, createStyles, Dialog, DialogActions, DialogContent, DialogTitle, Grid, GridJustification, makeStyles, Theme, Typography } from '@material-ui/core';
 import { Variant } from '@material-ui/core/styles/createTypography';
 import React, { ReactChild } from 'react';
+import { themeConfiguration } from '../../themeConfiguration';
 
 interface IBasicAlertDialog {
     title?: string,
@@ -28,6 +29,28 @@ interface ICssProperties {
     disableOverflowY?: boolean,
 }
 
+const useStyles = makeStyles((themeConfiguration: Theme) => createStyles({
+    title: {
+        paddingBottom: '0.75rem',
+    },
+
+    primaryButton:{
+        color: 'white',
+        backgroundColor: '#115fb0',
+        '&:hover':{
+            backgroundColor: '#0f447a',
+        },
+    },
+
+    secondaryButton:{
+        color: 'white',
+        backgroundColor: '#1176b0',
+        '&:hover':{
+            backgroundColor: '#0b4d73',
+        },
+    },
+}));
+
 export function BasicAlertDialog({    
     title, 
     open, 
@@ -42,6 +65,8 @@ export function BasicAlertDialog({
     maxWidth,
     fullWidth}: IBasicAlertDialog){
 
+    const classes = useStyles();
+    
     return(
         <Dialog 
             onClose={onClose}
@@ -54,12 +79,12 @@ export function BasicAlertDialog({
                 { (title || description) &&
                     <DialogTitle>  
                         { title &&
-                            <Typography>
+                            <Typography variant='h5' className={classes.title}>
                                 {title}
                             </Typography>
                         }
                         { description &&
-                            <Typography>
+                            <Typography variant='subtitle1'>
                                 {description}
                             </Typography>
                         }
@@ -78,6 +103,7 @@ export function BasicAlertDialog({
                             container
                             spacing={2}
                             direction='row'
+                            justify='flex-end'
                         >
                             <Grid item>
                                 <Button
@@ -85,6 +111,7 @@ export function BasicAlertDialog({
                                     onClick={handlePrimaryButton}
                                     variant='contained'
                                     size='large'
+                                    className={classes.primaryButton}
                                 >
                                     {textPrimaryButton}
                                 </Button>
@@ -95,6 +122,7 @@ export function BasicAlertDialog({
                                     onClick={handleSecondaryButton}
                                     variant='contained'
                                     size='large'
+                                    className={classes.secondaryButton}
                                 >
                                     {textSecondaryButton}
                                 </Button>

@@ -28,7 +28,7 @@ export function Speedometer({ name, valueNumber, unitSI}: ISpeedometerProps){
                         {
                             domain: { x: [-1,1], y: [-1,1]},
                             value: valueNumber,
-                            title: { text: name+' - '+unitSI, font:{ size: 30, family: 'Didact  Gothic'} },
+                            title: { text: name+' '+unitSI, font:{ size: 30, family: 'Didact  Gothic'} },
                             type: 'indicator',
                             mode: 'gauge+number',
                             gauge: {
