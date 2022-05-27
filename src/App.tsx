@@ -4,7 +4,7 @@ import './App.css';
 import { Header } from './Feature/Home/components/Header';
 import { DataVisualization } from './Feature/Content/components/DataVisualization';
 import { Grid, ThemeProvider } from '@material-ui/core';
-import { Sidebar } from './components/Sidebar';
+import { Sidebar } from './Feature/Sidebar/view/Sidebar';
 import { makeStyles } from '@material-ui/styles';
 import { themeConfiguration } from './themeConfiguration';
 import { DataContext } from './Feature/Content/DataContext';
