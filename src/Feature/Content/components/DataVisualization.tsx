@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import { Grid } from '@material-ui/core';
 
 import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
 import { VelocityModel, velocityModelInitial } from '../../../Models/VelocityModel';
@@ -26,9 +25,8 @@ export function DataVisualization() {
         const ws = new WebSocket(url);
         
         ws.onopen = () => {console.log('OPENED: '+url);};
-        ws.onmessage = (event) => {updateData(event);};
+        ws.onmessage = (event) => {updateData(event.data);};
         ws.onerror = (error) => {console.log(error);}; 
-        ws.close = () => {const ws = null;};
         ws.onclose = () => { reconnectConnection(); console.log('RECONNECTING...');};
     };
 
@@ -44,7 +42,7 @@ export function DataVisualization() {
     };
 
 
-    const handleHistoryGoingUp = (goingUp: any) => {
+    const handleHistoryGoingUp = (goingUp: boolean) => {
 
         currentHistory.push(goingUp);
 

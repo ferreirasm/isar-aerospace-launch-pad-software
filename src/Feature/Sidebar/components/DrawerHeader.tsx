@@ -5,7 +5,7 @@ import { createStyles, Grid } from '@material-ui/core';
 import Isar from '../../../assets/logoIsar.svg';
 import Spectrum from '../../../assets/Spectrum_liftoff.jpg';
 
-const useStyles = makeStyles((themeConfiguration) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     img: {
         textAlign:'center',
     },

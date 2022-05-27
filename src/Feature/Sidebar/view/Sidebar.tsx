@@ -4,7 +4,7 @@ import { createStyles, Drawer, Grid, makeStyles } from '@material-ui/core';
 import { DrawerHeader } from '../components/DrawerHeader';
 import { themeConfiguration } from '../../../themeConfiguration';
 
-const useStyles = makeStyles((themeConfiguration) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     container: {
         height: '100vh',
         overflow: 'hidden',
