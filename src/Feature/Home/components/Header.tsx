@@ -5,10 +5,10 @@ import { themeConfiguration } from '../../../themeConfiguration';
 
 const useStyles = makeStyles(() => ({
     logoContainer: {
-        backgroundColor: '#2a2a35',
+        backgroundColor: themeConfiguration.palette.background.default,
         marginBottom: themeConfiguration.spacing(0.25),
         border: '1px solid #2a2a35',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
         maxHeight: themeConfiguration.spacing(10),
         alignItems: 'flex',
         height: '62px',

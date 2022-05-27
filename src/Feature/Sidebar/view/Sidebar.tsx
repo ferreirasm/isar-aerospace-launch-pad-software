@@ -12,7 +12,7 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
     },
 
     drawerHeader: {
-        backgroundColor: '#2a2a35',
+        backgroundColor: themeConfiguration.palette.background.default,
     },
 
     drawerBody: {

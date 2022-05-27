@@ -37,18 +37,18 @@ const useStyles = makeStyles((themeConfiguration: Theme) => createStyles({
     },
 
     primaryButton:{
-        color: 'white',
-        backgroundColor: '#115fb0',
+        color: themeConfiguration.palette.common.white,
+        backgroundColor: themeConfiguration.palette.primary.main,
         '&:hover':{
-            backgroundColor: '#0f447a',
+            backgroundColor: themeConfiguration.palette.primary.light,
         },
     },
 
     secondaryButton:{
-        color: 'white',
-        backgroundColor: '#1176b0',
+        color: themeConfiguration.palette.common.white,
+        backgroundColor: themeConfiguration.palette.secondary.main,
         '&:hover':{
-            backgroundColor: '#0b4d73',
+            backgroundColor: themeConfiguration.palette.secondary.dark,
         },
     },
 }));

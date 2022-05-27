@@ -3,12 +3,12 @@ import { createMuiTheme } from '@material-ui/core';
 export const themeConfiguration = createMuiTheme({
     palette: {
         primary: {
-            light: '#E0FBC8',
-            main: '#115fb0'
+            light: '#0F447A',
+            main: '#115FB0'
         },
         secondary: {
-            main: '#A870DB',
-            dark: '#383888'
+            main: '#1176B0',
+            dark: '#0B4D73'
         },
         success: {
             light: '#E0FBC8',
@@ -47,8 +47,8 @@ export const themeConfiguration = createMuiTheme({
             900: '#424242',
         },
         background: {
-            paper: '#FFFFFF',
-            default: '#FAFAFA',
+            paper: '#3d3947',
+            default: '#2a2a35',
         },
     },
     typography: {
@@ -144,98 +144,5 @@ export const themeConfiguration = createMuiTheme({
             lineHeight: '0.75rem',
             letterSpacing: '0.1rem'
         }
-
-        // fontFamily: 'Montserrat',
-        // h1 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '6rem',
-        //     lineHeight: '7.25rem',
-        //     letterSpacing: '0rem'
-        // },
-        // h2 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '3.75rem',
-        //     lineHeight: '4.5rem',
-        //     letterSpacing: '0rem'
-        // },
-        // h3 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '3rem',
-        //     lineHeight: '3.625rem',
-        //     letterSpacing: '0rem'
-        // },
-        // h4 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '2.125rem',
-        //     lineHeight: '2.5rem',
-        //     letterSpacing: '0rem'
-        // },
-        // h5 : { 
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '1.5rem',
-        //     lineHeight: '1.75rem',
-        //     letterSpacing: '0rem'
-        // },
-        // h6 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '1.25rem',
-        //     lineHeight: '1.5rem',
-        //     letterSpacing: '0rem'
-        // },
-        // subtitle1 : { 
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 600, 
-        //     fontSize: '1rem',
-        //     lineHeight: '1.25rem',
-        //     letterSpacing: '0rem'
-        // },
-        // subtitle2 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 600, 
-        //     fontSize: '0.875rem',
-        //     lineHeight: '1rem',
-        //     letterSpacing: '0rem'
-        // },
-        // body1 : { 
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 400, 
-        //     fontSize: '1rem',
-        //     lineHeight: '1.25rem',
-        //     letterSpacing: '0rem'
-        // },
-        // body2 : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 400, 
-        //     fontSize: '0.875rem',
-        //     lineHeight: '1rem',
-        //     letterSpacing: '0rem'
-        // },
-        // button : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 600, 
-        //     fontSize: '0.875rem',
-        //     lineHeight: '1.25rem',
-        //     letterSpacing: '0.018rem'
-        // },
-        // caption : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 500, 
-        //     fontSize: '0.75rem',
-        //     lineHeight: '0.875rem',
-        //     letterSpacing: '0.01rem'
-        // },
-        // overline : {
-        //     fontFamily: 'Montserrat',
-        //     fontWeight: 700, 
-        //     fontSize: '0.625rem',
-        //     lineHeight: '0.75rem',
-        //     letterSpacing: '0.1rem'
-        // }
     }
 });

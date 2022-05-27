@@ -12,17 +12,17 @@ interface IGaugeChartsProps {
 
 const useStyles = makeStyles((themeConfiguration) => createStyles({
     root:{
-        backgroundColor: '#3d3947',
+        backgroundColor: themeConfiguration.palette.background.paper,
         marginBottom: themeConfiguration.spacing(0.25),
         border: '1px solid #3d3947',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
         maxWidth: '100vh',
     },
     
     title:{
         fontSize: '30px',
         textAlign: 'center',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
     },
 
     message:{
@@ -33,12 +33,12 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
 
     typography:{
         margin: '24px',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
     },
 
     paperContainer: {
         borderRadius: '16px',
-        background: '#3d3947',
+        background: themeConfiguration.palette.background.paper,
     },
 }));
 

@@ -5,8 +5,9 @@ import { Button, createStyles, Grid, Paper, Typography } from '@material-ui/core
 import { DataContext } from '../../Content/DataContext';
 import Isar from '../../../assets/logoIsar.svg';
 import Spectrum from '../../../assets/Spectrum_liftoff.jpg';
+import { themeConfiguration } from '../../../themeConfiguration';
 
-const useStyles = makeStyles((themeConfiguration) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     img: {
         textAlign:'center',
     },
@@ -18,8 +19,8 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
     },
 
     button: {
-        backgroundColor: '#115fb0',
-        color: 'white',
+        backgroundColor: themeConfiguration.palette.primary.main,
+        color: themeConfiguration.palette.common.white,
     }
 
 }));
