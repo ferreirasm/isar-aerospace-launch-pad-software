@@ -25,7 +25,7 @@ export function DataVisualization() {
         const ws = new WebSocket(url);
         
         ws.onopen = () => {console.log('OPENED: '+url);};
-        ws.onmessage = (event) => {updateData(event.data);};
+        ws.onmessage = (event) => {updateData(event);};
         ws.onerror = (error) => {console.log(error);}; 
         ws.onclose = () => { reconnectConnection(); console.log('RECONNECTING...');};
     };
