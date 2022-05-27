@@ -14,21 +14,9 @@ interface IBasicAlertDialog {
     textPrimaryButton?: string,
     textSecondaryButton?: string,
     children?: ReactChild,
-    cssProperties?: ICssProperties,
     onClose?: () => void,
     fullWidth?: boolean,
     maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-}
-
-interface ICssProperties {
-    colorPrimaryButton?: string,
-    colorPrimaryButtonHover?: string,
-    colorSecondaryButton?: string,
-    colorSecondaryButtonHover?: string,
-    justifyButtons?: GridJustification,
-    titleVariant?: Variant,
-    descriptionVariant?: Variant,
-    disableOverflowY?: boolean,
 }
 
 const useStyles = makeStyles((themeConfiguration: Theme) => createStyles({
@@ -61,8 +49,7 @@ export function BasicAlertDialog({
     handleSecondaryButton,
     textPrimaryButton, 
     textSecondaryButton, 
-    children, 
-    cssProperties,
+    children,
     onClose,
     maxWidth,
     fullWidth}: IBasicAlertDialog){

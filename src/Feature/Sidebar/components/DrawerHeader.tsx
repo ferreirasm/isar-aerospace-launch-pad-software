@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Button, createStyles, Grid, Paper, Typography } from '@material-ui/core';
+import { Button, createStyles, Grid } from '@material-ui/core';
 
 import { DataContext } from '../../Content/DataContext';
 import Isar from '../../../assets/logoIsar.svg';

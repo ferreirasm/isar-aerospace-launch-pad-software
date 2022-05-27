@@ -8,7 +8,7 @@ interface IMessageViewProps {
     message?: string
 }
 
-const useStyles = makeStyles((themeConfiguration) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     root:{
         backgroundColor: themeConfiguration.palette.background.paper,
         marginBottom: themeConfiguration.spacing(0.25),
