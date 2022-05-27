@@ -58,10 +58,8 @@ export function DataVisualization() {
     };
 
     const handleChangeTrajectory = (goingUp: boolean) => {
-        
-        const newGoingup = !goingUp;
 
-        LaunchDataService.postLaunchDataService(newGoingup);
+        LaunchDataService.postLaunchDataService(true);
         
         setOpenDialog(false);
     };
