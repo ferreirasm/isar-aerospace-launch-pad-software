@@ -1,7 +1,6 @@
 import React, { ReactChild } from 'react';
 import { Button, createStyles, Dialog, DialogActions, DialogContent, 
-    DialogTitle, Grid, GridJustification, makeStyles, Theme, Typography } from '@material-ui/core';
-import { Variant } from '@material-ui/core/styles/createTypography';
+    DialogTitle, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 
 import { themeConfiguration } from '../../themeConfiguration';
 

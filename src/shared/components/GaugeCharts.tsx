@@ -1,6 +1,5 @@
-import { createStyles, Grid, Icon, makeStyles, Paper, Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import Plot from 'react-plotly.js';
 
 import { themeConfiguration } from '../../themeConfiguration';
 
@@ -11,7 +10,7 @@ interface IGaugeChartsProps {
     icon?: JSX.Element,
 }
 
-const useStyles = makeStyles((themeConfiguration) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     root:{
         backgroundColor: themeConfiguration.palette.background.paper,
         marginBottom: themeConfiguration.spacing(0.25),
