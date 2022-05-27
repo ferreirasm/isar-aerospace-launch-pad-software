@@ -1,5 +1,6 @@
-import { createStyles, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { createStyles, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+
 import { themeConfiguration } from '../../themeConfiguration';
 
 interface IMessageViewProps {
@@ -9,21 +10,21 @@ interface IMessageViewProps {
 
 const useStyles = makeStyles((themeConfiguration) => createStyles({
     root:{
-        backgroundColor: '#3d3947',
+        backgroundColor: themeConfiguration.palette.background.paper,
         marginBottom: themeConfiguration.spacing(0.25),
         border: '1px solid #3d3947',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
     },
 
     paperContainer: {
         borderRadius: '16px',
-        background: '#3d3947',
+        background: themeConfiguration.palette.background.paper,
     },
     
     title:{
         fontSize: '30px',
         textAlign: 'center',
-        color:'white'
+        color:themeConfiguration.palette.common.white,
     },
     message:{
         fontSize: '40px',
@@ -32,7 +33,7 @@ const useStyles = makeStyles((themeConfiguration) => createStyles({
     },
     typography:{
         margin: '24px',
-        color: 'white',
+        color: themeConfiguration.palette.common.white,
     }
 }));
 

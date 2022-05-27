@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
-import { DataContext } from '../DataContext';
 import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
 import { VelocityModel, velocityModelInitial } from '../../../Models/VelocityModel';
 import LaunchDataService from '../../../Service/LaunchDataService';
@@ -12,22 +11,10 @@ import { MessageView } from '../../../shared/components/MessageView';
 import { Speedometer } from '../../../shared/components/Speedometer';
 import { BasicAlertDialog } from '../../../shared/components/BasicAlertDialog';
 
-const useStyles = makeStyles(() => ({
-    // container:{
-    //     backgroundColor:'#2a2a35',
-    //     // backgroundColor:'#fbd1c1',
-    // }
-}));
-
 export function DataVisualization() {
 
-    const classes = useStyles();
-    const dataContext = React.useContext(DataContext);
-
     const [velocity, setVelocity] = React.useState<VelocityModel>(velocityModelInitial);
-    const [error, setError] = React.useState<string>('');
     const [launchData, setLaunchData] = React.useState<LaunchDataModel>(launchDataModelInitial);
-    const [goingUpList, setGoingUpList] = React.useState<string[]>(['']);
     const [openDialog, setOpenDialog] = React.useState<boolean>(false);
     
     const currentHistory = [false];
@@ -48,16 +35,6 @@ export function DataVisualization() {
     const reconnectConnection = () => {
         setTimeout( () => { openConnection(); }, 1000);
     };
-
-    // const fetchData = () => {
-    //     LaunchDataService.getLaunchDataService()
-    //         .then((res) => {
-    //             setVelocity(res.data.velocity);
-    //             setLaunchData(res.data);
-    //         })
-    //         .catch((error) => setError(error));
-    // };
-    
     
     const updateData = (event: any) => {
         setLaunchData(JSON.parse(event.data));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@material-ui/core';
 import { IconProps } from './IconProps';
+import { themeConfiguration } from '../../themeConfiguration';
 
 export function Thermometer({ size, color }: IconProps) {
     return (
@@ -13,7 +14,7 @@ export function Thermometer({ size, color }: IconProps) {
             }}
         >
             <path
-                stroke={color ?? 'white'}
+                stroke={color ?? themeConfiguration.palette.common.white}
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"

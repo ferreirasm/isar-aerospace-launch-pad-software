@@ -3,12 +3,12 @@ import { createMuiTheme } from '@material-ui/core';
 export const themeConfiguration = createMuiTheme({
     palette: {
         primary: {
-            light: '#E0FBC8',
-            main: '#115fb0'
+            light: '#0F447A',
+            main: '#115FB0'
         },
         secondary: {
-            main: '#A870DB',
-            dark: '#383888'
+            main: '#1176B0',
+            dark: '#0B4D73'
         },
         success: {
             light: '#E0FBC8',
@@ -47,8 +47,8 @@ export const themeConfiguration = createMuiTheme({
             900: '#424242',
         },
         background: {
-            paper: '#FFFFFF',
-            default: '#FAFAFA',
+            paper: '#3d3947',
+            default: '#2a2a35',
         },
     },
     typography: {

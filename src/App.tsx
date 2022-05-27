@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
-import './App.css';
 import { ThemeProvider } from '@material-ui/core';
 
 import { themeConfiguration } from './themeConfiguration';

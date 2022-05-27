@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
         overflow: 'hidden',
     },
     container: {
-        backgroundColor:'#2a2a35',
+        backgroundColor:themeConfiguration.palette.background.default,
     },
 }));
 
