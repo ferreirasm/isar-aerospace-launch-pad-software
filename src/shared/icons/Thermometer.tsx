@@ -1,6 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@material-ui/core';
 import { IconProps } from './IconProps';
+
 import { themeConfiguration } from '../../themeConfiguration';
 
 export function Thermometer({ size, color }: IconProps) {
