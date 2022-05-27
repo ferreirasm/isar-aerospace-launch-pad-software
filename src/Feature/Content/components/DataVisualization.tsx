@@ -57,7 +57,7 @@ export function DataVisualization() {
         }
     };
 
-    const handleChangeTrajectory = (goingUp: boolean) => {
+    const handleChangeTrajectory = () => {
 
         LaunchDataService.postLaunchDataService(true);
         
@@ -102,7 +102,7 @@ export function DataVisualization() {
                     open={openDialog} 
                     title={'Spectrum change your trajectory'} 
                     description={'The trajectory suddenly has changed to descending. Do you want correcting to ascending?'}
-                    handlePrimaryButton={() => {handleChangeTrajectory(launchData.GoingUp);}}
+                    handlePrimaryButton={() => {handleChangeTrajectory();}}
                     handleSecondaryButton={() => {setOpenDialog(false);}}
                     textPrimaryButton={'Yes, I want!'}
                     textSecondaryButton={'No, that is ok!'}
