@@ -1,6 +1,7 @@
 import { createStyles, Grid, Icon, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import Plot from 'react-plotly.js';
+
 import { themeConfiguration } from '../../themeConfiguration';
 
 interface IGaugeChartsProps {

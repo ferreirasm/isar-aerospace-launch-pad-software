@@ -1,5 +1,6 @@
 import { createStyles, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+
 import { themeConfiguration } from '../../themeConfiguration';
 
 interface IMessageViewProps {

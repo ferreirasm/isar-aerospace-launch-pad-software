@@ -74,7 +74,7 @@ export function BasicAlertDialog({
             onClose={onClose}
             maxWidth={maxWidth ?? 'md'}
             fullWidth={fullWidth ?? false}
-            PaperProps={{ style: { borderRadius: 16, padding: '12px' }}}
+            PaperProps={{ style: { borderRadius: 16, padding: '12px', backgroundColor: themeConfiguration.palette.common.white }}}
             open={open}
         >
             <>
