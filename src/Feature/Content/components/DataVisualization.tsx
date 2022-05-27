@@ -1,6 +1,8 @@
+import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import React from 'react';
+
+import { DataContext } from '../DataContext';
 import { LaunchDataModel, launchDataModelInitial } from '../../../Models/LaunchDataModel';
 import { VelocityModel, velocityModelInitial } from '../../../Models/VelocityModel';
 import LaunchDataService from '../../../Service/LaunchDataService';
@@ -8,8 +10,6 @@ import { GaugeCharts } from '../../../shared/components/GaugeCharts';
 import { Thermometer } from '../../../shared/icons/Thermometer';
 import { MessageView } from '../../../shared/components/MessageView';
 import { Speedometer } from '../../../shared/components/Speedometer';
-import { DataContext } from '../DataContext';
-import io from 'socket.io-client';
 import { BasicAlertDialog } from '../../../shared/components/BasicAlertDialog';
 
 const useStyles = makeStyles(() => ({
@@ -54,7 +54,6 @@ export function DataVisualization() {
         ws.onerror = () => {console.log('Error');}; 
         ws.close = () => {const ws = null;};
         ws.onclose = () => { setTimeout( () => { dataContext.setUpdateData(true); }, 1000); };
-        // ws.onclose = () => { openConnection(); };
     };
 
     // const fetchData = () => {
@@ -70,8 +69,6 @@ export function DataVisualization() {
     const updateData = (event: any) => {
         setLaunchData(JSON.parse(event.data));
         setVelocity(JSON.parse(event.data).Velocity);
-       
-        // goingUp = String(launchData.GoingUp);
         
         handleHistoryGoingUp(JSON.parse(event.data).GoingUp); 
     };
@@ -79,7 +76,6 @@ export function DataVisualization() {
 
     const handleHistoryGoingUp = (goingUp: any) => {
 
-        // console.log(currentHistory);
         currentHistory.push(goingUp);
 
         if (currentHistory.length > 3) 
@@ -87,7 +83,7 @@ export function DataVisualization() {
             currentHistory.shift();
         }
 
-        if (currentHistory.length > 2 && currentHistory.at(1) != currentHistory.at(2))
+        if (currentHistory.length > 2 && currentHistory.at(1) != currentHistory.at(2) && currentHistory.at(2) == false)
         {
             setOpenDialog(true);
         }
@@ -96,15 +92,10 @@ export function DataVisualization() {
     const handleChangeTrajectory = (goingUp: boolean) => {
         
         const newGoingup = !goingUp;
-        // if (goingUp == true)
-        //     LaunchDataService.postLaunchDataService((false));
 
-        // else 
         LaunchDataService.postLaunchDataService(newGoingup);
         
         setOpenDialog(false);
-        console.log('Valor é: '+ goingUp);
-        console.log('Novo valor é: '+ newGoingup);
     };
 
     return (
@@ -144,11 +135,12 @@ export function DataVisualization() {
                 <BasicAlertDialog 
                     open={openDialog} 
                     title={'Spectrum change your trajectory'} 
-                    description={`The state of going up now is ${String(launchData.GoingUp)}! Do you want change?`}
+                    // description={`The state of going up now is ${String(launchData.GoingUp)}! Do you want change?`}
+                    description={'The trajectory suddenly has changed to descending. Do you want correcting to ascending?'}
                     handlePrimaryButton={() => {handleChangeTrajectory(launchData.GoingUp);}}
                     handleSecondaryButton={() => {setOpenDialog(false);}}
-                    textPrimaryButton={'Yes'}
-                    textSecondaryButton={'No'}
+                    textPrimaryButton={'Yes, I want!'}
+                    textSecondaryButton={'No, that is ok!'}
                 />
             </Grid>
         </>

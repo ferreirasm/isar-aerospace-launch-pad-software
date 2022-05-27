@@ -1,9 +1,10 @@
-import { Button, createStyles, Grid, Paper, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
 import React from 'react';
+import { makeStyles } from '@material-ui/styles';
+import { Button, createStyles, Grid, Paper, Typography } from '@material-ui/core';
+
+import { DataContext } from '../../Content/DataContext';
 import Isar from '../../../assets/logoIsar.svg';
 import Spectrum from '../../../assets/Spectrum_liftoff.jpg';
-import { DataContext } from '../../Content/DataContext';
 
 const useStyles = makeStyles((themeConfiguration) => createStyles({
     img: {

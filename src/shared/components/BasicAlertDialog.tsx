@@ -1,6 +1,8 @@
-import { Button, createStyles, Dialog, DialogActions, DialogContent, DialogTitle, Grid, GridJustification, makeStyles, Theme, Typography } from '@material-ui/core';
-import { Variant } from '@material-ui/core/styles/createTypography';
 import React, { ReactChild } from 'react';
+import { Button, createStyles, Dialog, DialogActions, DialogContent, 
+    DialogTitle, Grid, GridJustification, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Variant } from '@material-ui/core/styles/createTypography';
+
 import { themeConfiguration } from '../../themeConfiguration';
 
 interface IBasicAlertDialog {

@@ -1,4 +1,5 @@
 import { VelocityModel } from './VelocityModel';
+
 export interface LaunchDataModel {
     Velocity: VelocityModel[],
     Altitude: number,

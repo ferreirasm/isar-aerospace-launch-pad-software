@@ -1,5 +1,5 @@
-import { Grid, makeStyles, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
+import { Grid, makeStyles, Paper } from '@material-ui/core';
 import Plot from 'react-plotly.js';
 
 interface ISpeedometerProps {

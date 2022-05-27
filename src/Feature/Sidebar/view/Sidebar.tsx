@@ -1,7 +1,8 @@
-import { createStyles, Drawer, Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { themeConfiguration } from '../../../themeConfiguration';
+import { createStyles, Drawer, Grid, makeStyles } from '@material-ui/core';
+
 import { DrawerHeader } from '../components/DrawerHeader';
+import { themeConfiguration } from '../../../themeConfiguration';
 
 const useStyles = makeStyles((themeConfiguration) => createStyles({
     container: {
