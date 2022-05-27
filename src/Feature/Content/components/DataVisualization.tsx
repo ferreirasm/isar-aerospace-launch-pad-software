@@ -31,19 +31,8 @@ export function DataVisualization() {
     const [openDialog, setOpenDialog] = React.useState<boolean>(false);
     
     const currentHistory = [false];
-    
-    React.useEffect(() => {
 
-        openConnection();
-
-        dataContext.setUpdateData(false);
-
-    }, [dataContext.updateData]);
-
-    // React.useEffect(() => {
-    //     openConnection();
-
-    // }, []);
+    setTimeout( () => { openConnection(); }, 1000);
 
     const openConnection = () => {
         const url = 'wss://isaraerospace-webdeveloper-assignment.azurewebsites.net/api/SpectrumWS?token=0DB9D71DE67';
@@ -51,9 +40,13 @@ export function DataVisualization() {
         
         ws.onopen = () => {console.log('OPENED: '+url);};
         ws.onmessage = (event) => {updateData(event);};
-        ws.onerror = () => {console.log('Error');}; 
+        ws.onerror = (error) => {console.log(error);}; 
         ws.close = () => {const ws = null;};
-        ws.onclose = () => { setTimeout( () => { dataContext.setUpdateData(true); }, 1000); };
+        ws.onclose = () => { reconnectConnection(); console.log('RECONNECTING...');};
+    };
+
+    const reconnectConnection = () => {
+        setTimeout( () => { openConnection(); }, 1000);
     };
 
     // const fetchData = () => {
@@ -135,7 +128,6 @@ export function DataVisualization() {
                 <BasicAlertDialog 
                     open={openDialog} 
                     title={'Spectrum change your trajectory'} 
-                    // description={`The state of going up now is ${String(launchData.GoingUp)}! Do you want change?`}
                     description={'The trajectory suddenly has changed to descending. Do you want correcting to ascending?'}
                     handlePrimaryButton={() => {handleChangeTrajectory(launchData.GoingUp);}}
                     handleSecondaryButton={() => {setOpenDialog(false);}}
