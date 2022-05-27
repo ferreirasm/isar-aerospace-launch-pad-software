@@ -1,17 +1,17 @@
 import { VelocityModel } from './VelocityModel';
 
 export interface LaunchDataModel {
-    Velocity: VelocityModel[],
-    Altitude: number,
-    Temperature: number,
-    GoingUp: boolean,
-    StatusMessage: string,
+    velocity: VelocityModel[],
+    altitude: number,
+    temperature: number,
+    goingUp: boolean,
+    statusMessage: string,
 }
 
 export const launchDataModelInitial = {
-    Velocity: [],
-    Altitude: 0,
-    Temperature: 0,
-    GoingUp: false,
-    StatusMessage: '',
+    velocity: [],
+    altitude: 0,
+    temperature: 0,
+    goingUp: false,
+    statusMessage: '',
 };
